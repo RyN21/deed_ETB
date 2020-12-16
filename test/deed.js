@@ -12,11 +12,11 @@ contract('Deed', (accounts) => {
     await new Promise(resolve => setTimeout(resolve, 5000));
     await deed.withdraw({from: accounts[0]});
     const finalBalance = web3.utils.toBN(await web3.eth.getBalance(accounts[1]));
-    assert(finalBalance.sub(initialBalance).toNumber === 100);
+    assert(finalBalance.sub(initialBalance).toNumber() === 100);
   });
 
   it('Should NOT withdraw too early', async () => {
-    // create new instance of contract OR Reset the contract 
+    // create new instance of contract OR Reset the contract
     const deed = Deed.new(
       accounts[0],
       accounts[1],
@@ -26,7 +26,7 @@ contract('Deed', (accounts) => {
     try {
       await deed.withdraw({from: accounts[0]});
     } catch(e) {
-      assert(e.message.includes('Too early.');
+      assert(e.message.includes('Too early.'));
       return;
     }
     assert(false);
@@ -43,7 +43,7 @@ contract('Deed', (accounts) => {
       await new Promise(resolve => setTimeout(resolve, 5000));
       await deed.withdraw({from: accounts[1]});
     } catch(e) {
-      assert(e.message.includes('Lawyer only.');
+      assert(e.message.includes('Lawyer only.'));
       return;
     }
     assert(false);
