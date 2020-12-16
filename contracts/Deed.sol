@@ -5,7 +5,6 @@ contract Deed {
   // 4 variables to a deed
   address public lawyer;
   address payable public beneficiary;
-  uint public amount;
   uint public earliest;
 
   constructor(
@@ -15,7 +14,6 @@ contract Deed {
     uint fromNow)
     payable
     public {
-      require(_amount == msg.value);
       lawyer = _lawyer;
       beneficiary = _beneficiary;
       earliest = now + fromNow;
