@@ -1,3 +1,8 @@
+// This test I learned how to test time sensative contracts
+// by creating a Promise that resolves after a certain amount of timeout
+// Also had to deal with state management problems where one test re-suses
+// a smart contract that was alread deployed before but is in a bad state for testing
+
 const Deed = artifacts.require('Deed');
 
 contract('Deed', (accounts) => {
