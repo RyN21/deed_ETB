@@ -24,5 +24,6 @@ contract Deed {
   function withdraw() public {
     require(msg.sender == lawyer);
     require(now >= earliest);
+    beneficiary.transfer(amount);
   }
 }
