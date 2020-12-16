@@ -16,6 +16,13 @@ contract('Deed', (accounts) => {
   });
 
   it('Should NOT withdraw too early', async () => {
+    // create new instance of contract OR Reset the contract 
+    const deed = Deed.new(
+      accounts[0],
+      accounts[1],
+      5,
+      {value: 100}
+    );
     try {
       await deed.withdraw({from: accounts[0]});
     } catch(e) {
@@ -26,6 +33,12 @@ contract('Deed', (accounts) => {
   });
 
   it('Should NOT withdraw if caller is not lawyer', async () => {
+    const deed = Deed.new(
+      accounts[0],
+      accounts[1],
+      5,
+      {value: 100}
+    );
     try {
       await new Promise(resolve => setTimeout(resolve, 5000));
       await deed.withdraw({from: accounts[1]});
