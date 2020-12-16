@@ -21,4 +21,8 @@ contract Deed {
       earliest = now + fromNow;
     }
 
+  function withdraw() public {
+    require(msg.sender == lawyer);
+    require(now >= earliest);
+  }
 }
