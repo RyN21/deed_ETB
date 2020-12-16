@@ -21,6 +21,7 @@ contract Deed {
   function withdraw() public {
     require(msg.sender == lawyer, 'Lawyer only.');
     require(now >= earliest, 'Too early');
+    // Below is stating that all the ether that is added when the contract is deployed will be transfered to the beneficiary
     beneficiary.transfer(address(this).balance);
   }
 }
