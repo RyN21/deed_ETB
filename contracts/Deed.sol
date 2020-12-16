@@ -10,7 +10,6 @@ contract Deed {
   constructor(
     address _lawyer,
     address payable _beneficiary,
-    uint _amount,
     uint fromNow)
     payable
     public {
@@ -22,6 +21,6 @@ contract Deed {
   function withdraw() public {
     require(msg.sender == lawyer, 'Lawyer only.');
     require(now >= earliest, 'Too early');
-    beneficiary.transfer(amount);
+    beneficiary.transfer(address(this).balance);
   }
 }
