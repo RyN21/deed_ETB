@@ -19,7 +19,18 @@ contract('Deed', (accounts) => {
     try {
       await deed.withdraw({from: accounts[0]});
     } catch(e) {
-      assert(e.message.includes('Too early');
+      assert(e.message.includes('Too early.');
+      return;
+    }
+    assert(false);
+  });
+
+  it('Should NOT withdraw if caller is not lawyer', async () => {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      await deed.withdraw({from: accounts[1]});
+    } catch(e) {
+      assert(e.message.includes('Lawyer only.');
       return;
     }
     assert(false);
