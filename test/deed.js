@@ -17,7 +17,7 @@ contract('Deed', (accounts) => {
 
   it('Should NOT withdraw too early', async () => {
     // create new instance of contract OR Reset the contract
-    const deed = Deed.new(
+    const deed = await Deed.new(
       accounts[0],
       accounts[1],
       5,
@@ -33,7 +33,7 @@ contract('Deed', (accounts) => {
   });
 
   it('Should NOT withdraw if caller is not lawyer', async () => {
-    const deed = Deed.new(
+    const deed = await Deed.new(
       accounts[0],
       accounts[1],
       5,
