@@ -7,4 +7,18 @@ contract Deed {
   address payable public beneficiary;
   uint public amount;
   uint public earliest;
+
+  constructor(
+    address _lawyer,
+    address payable _beneficiary,
+    uint _amount,
+    uint fromNow)
+    payable
+    public {
+      require(_amount == msg.value);
+      lawyer = _lawyer;
+      beneficiary = _beneficiary;
+      earliest = now + fromNow;
+    }
+
 }
