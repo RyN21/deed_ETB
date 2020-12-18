@@ -49,6 +49,13 @@ const initApp = () => {
     accounts = _accounts;
   });
 
+  const refreshBalance = () => {
+    web3.eth.getBalance(deed.options.address)
+    .then(balance => {
+      $balance.innerHTML = balance;
+    });
+  }
+
   $widthdraw.addEventListener('submit', (e) => {
     e.preventDefault();
     deed.methods
@@ -62,7 +69,7 @@ const initApp = () => {
       });
   });
 
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   initWeb3()
