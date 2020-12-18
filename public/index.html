@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="bundle.js"></script>
+  </head>
+  <body>
+    <div class="containter px-4" align="center">
+      <div class="row gx-5">
+        <div class="col-sm-4">
+          <div class="p-3 border bg-light">
+            <h1>Ether Wallet</h1><br><br>
+
+            <form id="withdraw">
+              <h3>Withdraw Ether</h3>
+              <div class="form-group">
+                <label for="withdraw">Value</label>
+                <input id="withdraw" type="number" class="form-control"></input>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <p id="withdraw-result"></p>
+            </form>
+
+            <hr>
+
+            <h3>Balance</h3>
+            <h5 id="balance"></h5>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
