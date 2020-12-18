@@ -42,14 +42,27 @@ const initApp = () => {
   const $withdraw = document.getElementById('withdraw');
   const $widthdrawResult = document.getElementById('withdraw-result');
   const $balance = document.getElementById('balance');
-  const $paidPayouts = document.getElementById('paid-payouts');
-  const $earliest = document.getElementById('earliest');
   let accounts = [];
 
   web3.eth.getAccounts()
   .then(_accounts => {
     accounts = _accounts;
   });
+
+  $widthdraw.addEventListener('submit', (e) => {
+  e.preventDefault();
+  deedMultiPayouts.methods
+    .withdraw()
+    .then(result => {
+      $widthdrawResult.innerHTML = `Withdrawal succesful!`;
+      refreshBalance();
+      refreshPaidPayouts();
+      refreshEarliest();
+    })
+    .catch(_e => {
+      $widthdrawResult.innerHTML = `Ooops... there was an error while trying to widthdraw...`;
+    });
+});
 
 }
 
