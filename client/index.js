@@ -69,6 +69,7 @@ const initApp = () => {
       });
   });
 
+  refreshBalance();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
