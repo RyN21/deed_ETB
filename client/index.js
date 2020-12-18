@@ -50,19 +50,17 @@ const initApp = () => {
   });
 
   $widthdraw.addEventListener('submit', (e) => {
-  e.preventDefault();
-  deedMultiPayouts.methods
-    .withdraw()
-    .then(result => {
-      $widthdrawResult.innerHTML = `Withdrawal succesful!`;
-      refreshBalance();
-      refreshPaidPayouts();
-      refreshEarliest();
-    })
-    .catch(_e => {
-      $widthdrawResult.innerHTML = `Ooops... there was an error while trying to widthdraw...`;
-    });
-});
+    e.preventDefault();
+    deed.methods
+      .withdraw()
+      .then(result => {
+        $widthdrawResult.innerHTML = `Withdrawal succesful!`;
+        refreshBalance();
+      })
+      .catch(_e => {
+        $widthdrawResult.innerHTML = `Ooops... there was an error while trying to widthdraw...`;
+      });
+  });
 
 }
 
