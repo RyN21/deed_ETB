@@ -40,7 +40,10 @@ const initContract = async () => {
 
 const initApp = () => {
   const $withdraw = document.getElementById('withdraw');
-  const $withdrawResult = document.getElementById('withdraw-result');
+  const $widthdrawResult = document.getElementById('withdraw-result');
+  const $balance = document.getElementById('balance');
+  const $paidPayouts = document.getElementById('paid-payouts');
+  const $earliest = document.getElementById('earliest');
   let accounts = [];
 
   web3.eth.getAccounts()
