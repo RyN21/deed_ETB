@@ -39,6 +39,9 @@ const initContract = async () => {
 };
 
 const initApp = () => {
+  const $withdraw = document.getElementById('withdraw');
+  const $withdrawResult = document.getElementById('withdraw-result');
+  let accounts = [];
 
   web3.eth.getAccounts()
   .then(_accounts => {
