@@ -1,8 +1,8 @@
 import Web3 from 'web3';
-import EtherWallet from '../build/contracts/EtherWallet.json';
+import Deed from '../build/contracts/Deed.json';
 
 let web3;
-let etherWallet;
+let deed;
 
 const initWeb3 = () => {
   return new Promise((resolve, reject) => {
@@ -31,8 +31,8 @@ const initWeb3 = () => {
 const initContract = async () => {
   const networkId = await web3.eth.net.getId();
   return new web3.eth.Contract(
-    EtherWallet.abi,
-    EtherWallet
+    Deed.abi,
+    Deed
       .networks[networkId]
       .address
   );
@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
       web3 = _web3;
       return initContract();
     })
-    .then(_etherWallet => {
-      etherWallet = _etherWallet;
+    .then(_deed => {
+      deed = _deed;
       initApp();
     })
     .catch(e => console.log(e.message));
